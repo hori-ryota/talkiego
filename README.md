@@ -45,7 +45,7 @@ Following code is simple example.
 
 ---
 
-<!-- bullets: -->
+<!-- bullets: style="color:#ff0000;" -->
 
 * foo
 * bar
