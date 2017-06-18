@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Talkie.js - HTML/CSS/JavaScript Presentation Library</title>
+  <link rel="stylesheet" href="./talkie/talkie.min.css">
+  <link rel="stylesheet" href="./talkie/talkie-default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/monokai_sublime.min.css">
+</head>
+<body>
+
+<!-- put your slides -->
+{{range .Pages}}
+<template layout="{{.Option.Layout}}" type="text/x-markdown"
+{{with .Option.Backface}} 
+          backface="{{.}}"
+{{end}}
+{{with .Option.BackfaceFilter}} 
+          backface-filter="{{.}}"
+{{end}}
+{{if .Option.Invert}}
+          invert
+{{end}}
+>
+{{.Body}}
+</template>
+{{end}}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script src="./talkie/talkie.min.js"></script>
+<script>
+  var talkie = Talkie({
+    {{with .RootOption.Wide}}wide: true,{{end}}
+    {{with .RootOption.Control}}control: true,{{end}}
+    {{with .RootOption.Pointer}}pointer: true,{{end}}
+    {{with .RootOption.Progress}}progress: true,{{end}}
+    {{with .RootOption.Backface}}backface: true,{{end}}
+    {{with .RootOption.NoTransition}}notransition: true,{{end}}
+    {{with .RootOption.LinkShouldBlank}}linkshouldblank: true,{{end}}
+  });
+  talkie.key('s').subscribe(talkie.next$);
+  talkie.key('n').subscribe(talkie.next$);
+  talkie.key('a').subscribe(talkie.prev$);
+  talkie.key('p').subscribe(talkie.prev$);
+  document.addEventListener('DOMContentLoaded', function() {
+    talkie.changed.subscribe(function(current) {
+      console.clear();
+      // print presenter notes
+      console.info(talkie.notes[current.getAttribute('data-page')]);
+    });
+  });
+</script>
+</body>
+</html>

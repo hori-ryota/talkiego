@@ -1,0 +1,3 @@
+[submodule "assets/Talkie"]
+	path = assets/Talkie
+	url = git@github.com:ahomu/Talkie.git
