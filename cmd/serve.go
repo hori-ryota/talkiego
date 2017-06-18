@@ -34,10 +34,8 @@ var serveCmd = &cobra.Command{
 	Short: "Serve markdown file",
 	Long:  `Serve markdown file`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		log.Println("serve called")
-
 		targetPath := "index.md"
-		if len(args) > 1 {
+		if len(args) >= 1 {
 			targetPath = args[0]
 		}
 
