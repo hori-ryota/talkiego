@@ -61,6 +61,7 @@ RootOpt can following formats.
 ```
 <!-- rootopt: [option] [option] -->
 <!-- rootopt: [option=boolean] [option=boolean] -->
+<!-- rootopt: [option:boolean] [option:boolean] -->
 ```
 
 If you input only propaty name, value  will be true.
@@ -79,6 +80,7 @@ PageOpt can following formats.
 ```
 <!-- [layout]: -->
 <!-- [layout]: [option=value] [option=value] -->
+<!-- [layout]: [option:value] [option:value] -->
 ```
 
 Examples are following.
