@@ -20,6 +20,9 @@
 {{if .Option.Invert}}
           invert
 {{end}}
+{{with .Option.Style}}
+          style="{{.}}"
+{{end}}
 >
 {{.Body}}
 </template>
