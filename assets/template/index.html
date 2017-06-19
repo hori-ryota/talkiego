@@ -2,8 +2,8 @@
 <head>
   <meta charset="utf-8">
   <title>Talkie.js - HTML/CSS/JavaScript Presentation Library</title>
-  <link rel="stylesheet" href="./talkie/talkie.min.css">
-  <link rel="stylesheet" href="./talkie/talkie-default.min.css">
+  <link rel="stylesheet" href="./assets/Talkie/dist/talkie.min.css">
+  <link rel="stylesheet" href="./assets/Talkie/dist/talkie-default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/monokai_sublime.min.css">
 </head>
 <body>
@@ -29,16 +29,16 @@
 {{end}}
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-<script src="./talkie/talkie.min.js"></script>
+<script src="./assets/Talkie/dist/talkie.min.js"></script>
 <script>
   var talkie = Talkie({
-    {{with .RootOption.Wide}}wide: true,{{end}}
-    {{with .RootOption.Control}}control: true,{{end}}
-    {{with .RootOption.Pointer}}pointer: true,{{end}}
-    {{with .RootOption.Progress}}progress: true,{{end}}
-    {{with .RootOption.Backface}}backface: true,{{end}}
-    {{with .RootOption.NoTransition}}notransition: true,{{end}}
-    {{with .RootOption.LinkShouldBlank}}linkshouldblank: true,{{end}}
+    wide: {{.RootOption.Wide}},
+    control: {{.RootOption.Control}},
+    pointer: {{.RootOption.Pointer}},
+    progress: {{.RootOption.Progress}},
+    backface: {{.RootOption.Backface}},
+    notransition: {{.RootOption.NoTransition}},
+    linkshouldblank: {{.RootOption.LinkShouldBlank}},
   });
   talkie.key('s').subscribe(talkie.next$);
   talkie.key('n').subscribe(talkie.next$);

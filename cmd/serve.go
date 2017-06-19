@@ -45,7 +45,7 @@ var serveCmd = &cobra.Command{
 			return errors.Errorf("target file not found: targetPath='%s'", targetPath)
 		}
 
-		http.Handle("/talkie/", http.StripPrefix("/talkie", http.FileServer(assets.Talkie)))
+		http.Handle("/assets/Talkie/dist/", http.StripPrefix("/assets/Talkie/dist", http.FileServer(assets.Talkie)))
 		http.HandleFunc("/", handler(targetPath))
 
 		log.Printf("ListenAndServe http://localhost:%d/\n", servePort)
