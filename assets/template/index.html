@@ -10,7 +10,12 @@
 
 <!-- put your slides -->
 {{range .Pages}}
-<template layout="{{.Option.Layout}}" type="text/x-markdown"
+{{if .Option.Script}}
+<script
+{{else}}
+<template
+{{end}}
+          layout="{{.Option.Layout}}" type="text/x-markdown"
 {{with .Option.Backface}} 
           backface="{{.}}"
 {{end}}
@@ -25,7 +30,11 @@
 {{end}}
 >
 {{.Body}}
+{{if .Option.Script}}
+</script>
+{{else}}
 </template>
+{{end}}
 {{end}}
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>

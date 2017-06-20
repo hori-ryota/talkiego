@@ -25,6 +25,7 @@ type PageOption struct {
 	BackfaceFilter string
 	Invert         bool
 	Style          string
+	Script         bool
 }
 
 type Page struct {
@@ -139,6 +140,8 @@ func (p *PageOption) Apply(key, value string) error {
 		p.Invert = true
 	case "style":
 		p.Style = value
+	case "script":
+		p.Script = true
 	default:
 		return errors.Errorf("%s is unknown key [key='%s', value='%s']", key, key, value)
 	}
