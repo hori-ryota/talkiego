@@ -30,6 +30,24 @@ func Test_parseProps(t *testing.T) {
 				"backfaceFilter": "blur(3px) brightness(.9)",
 			},
 		},
+		{
+			name: "escaped double quote",
+			args: args{
+				s: `backfaceFilter="blu\"r(3px) brightness(.9)"`,
+			},
+			want: map[string]string{
+				"backfaceFilter": `blu\"r(3px) brightness(.9)`,
+			},
+		},
+		{
+			name: "contain double quote",
+			args: args{
+				s: `backfaceFilter=blu"r`,
+			},
+			want: map[string]string{
+				"backfaceFilter": `blu"r`,
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
