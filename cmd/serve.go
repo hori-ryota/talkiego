@@ -28,6 +28,8 @@ import (
 
 var servePort uint
 
+var serveRootOption = RootOption{}
+
 // serveCmd represents the serve command
 var serveCmd = &cobra.Command{
 	Use:   "serve [index.md]",
@@ -61,6 +63,13 @@ func init() {
 	RootCmd.AddCommand(serveCmd)
 
 	serveCmd.Flags().UintVarP(&servePort, "port", "p", 3000, "listen port")
+	serveCmd.Flags().BoolVarP(&serveRootOption.Wide, "wide", "w", false, "wide option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.Control, "control", "c", false, "control option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.Pointer, "pointer", "b", false, "pointer option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.Progress, "progress", "r", false, "progress option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.Backface, "backface", "f", false, "backface option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.NoTransition, "noTransition", "t", false, "noTransition option")
+	serveCmd.Flags().BoolVarP(&serveRootOption.LinkShouldBlank, "linkShouldBlank", "l", false, "linkShouldBlank option")
 }
 
 func handler(targetPath string) http.HandlerFunc {
@@ -91,7 +100,9 @@ func indexHandler(w http.ResponseWriter, r *http.Request, targetPath string) {
 		w.WriteHeader(http.StatusInternalServerError)
 		log.Fatal(err)
 	}
-	param := TalkieParam{}
+	param := TalkieParam{
+		RootOption: serveRootOption,
+	}
 	if err := param.Parse(string(bs), divider); err != nil {
 		err = errors.Wrap(err, "parse file failed")
 		w.WriteHeader(http.StatusInternalServerError)

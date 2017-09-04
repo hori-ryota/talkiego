@@ -13,17 +13,7 @@ var _Talkiea92a4ef31a3a44eb790dc09c17a1db11a4fdd247 = "[data-body-bg]{background
 
 // Talkie returns go-assets FileSystem
 var Talkie = assets.NewFileSystem(map[string][]string{"/": []string{"talkie-default.min.css", "talkie.min.css", "talkie.min.js", "talkie.min.js.map"}}, map[string]*assets.File{
-	"/talkie.min.js": &assets.File{
-		Path:     "/talkie.min.js",
-		FileMode: 0x1a4,
-		Mtime:    time.Unix(1497671101, 1497671101000000000),
-		Data:     []byte(_Talkiecd2c5c99689afc9383e28b9636c2bf8e1789e987),
-	}, "/talkie.min.js.map": &assets.File{
-		Path:     "/talkie.min.js.map",
-		FileMode: 0x1a4,
-		Mtime:    time.Unix(1497671101, 1497671101000000000),
-		Data:     []byte(_Talkie6710c8e3f1e491f7016b1f48b4892045056177e9),
-	}, "/": &assets.File{
+	"/": &assets.File{
 		Path:     "/",
 		FileMode: 0x800001ed,
 		Mtime:    time.Unix(1497671101, 1497671101000000000),
@@ -38,4 +28,14 @@ var Talkie = assets.NewFileSystem(map[string][]string{"/": []string{"talkie-defa
 		FileMode: 0x1a4,
 		Mtime:    time.Unix(1497671101, 1497671101000000000),
 		Data:     []byte(_Talkiec238fdc939d1d4ace2dae1fe9f22208c8531bf83),
+	}, "/talkie.min.js": &assets.File{
+		Path:     "/talkie.min.js",
+		FileMode: 0x1a4,
+		Mtime:    time.Unix(1497671101, 1497671101000000000),
+		Data:     []byte(_Talkiecd2c5c99689afc9383e28b9636c2bf8e1789e987),
+	}, "/talkie.min.js.map": &assets.File{
+		Path:     "/talkie.min.js.map",
+		FileMode: 0x1a4,
+		Mtime:    time.Unix(1497671101, 1497671101000000000),
+		Data:     []byte(_Talkie6710c8e3f1e491f7016b1f48b4892045056177e9),
 	}}, "")
