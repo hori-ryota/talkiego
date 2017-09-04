@@ -10,8 +10,15 @@ Usage:
   talkiego serve [index.md] [flags]
 
 Flags:
-  -h, --help        help for serve
-  -p, --port uint   listen port (default 3000)
+  -f, --backface          backface option
+  -c, --control           control option
+  -h, --help              help for serve
+  -l, --linkShouldBlank   linkShouldBlank option
+  -t, --noTransition      noTransition option
+  -b, --pointer           pointer option
+  -p, --port uint         listen port (default 3000)
+  -r, --progress          progress option
+  -w, --wide              wide option
 
 Global Flags:
       --config string    config file (default is $HOME/.talkiego.yaml)
@@ -106,7 +113,7 @@ Examples are following.
 
 ## TODO
 
-* [ ] Allow RootOpt settings with command flags
+* [x] Allow RootOpt settings with command flags
 * [ ] Allow custom thema
 * [ ] Allow custom css
 * [ ] Add watch option
