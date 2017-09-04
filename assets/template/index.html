@@ -4,7 +4,10 @@
   <title>Talkie.js - HTML/CSS/JavaScript Presentation Library</title>
   <link rel="stylesheet" href="./assets/Talkie/dist/talkie.min.css">
   <link rel="stylesheet" href="./assets/Talkie/dist/talkie-default.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/monokai_sublime.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai_sublime.min.css">
+  {{range .CustomCSSs}}
+  <link rel="stylesheet" href="{{.}}">
+  {{end}}
 </head>
 <body>
 
@@ -37,8 +40,12 @@
 {{end}}
 {{end}}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/languages/go.min.js"></script>
 <script src="./assets/Talkie/dist/talkie.min.js"></script>
+{{range .CustomScripts}}
+<script src="{{.}}"></script>
+{{end}}
 <script>
   var talkie = Talkie({
     wide: {{.RootOption.Wide}},

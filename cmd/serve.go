@@ -29,6 +29,8 @@ import (
 var servePort uint
 
 var serveRootOption = RootOption{}
+var customCSSs = []string{}
+var customScripts = []string{}
 
 // serveCmd represents the serve command
 var serveCmd = &cobra.Command{
@@ -70,6 +72,9 @@ func init() {
 	serveCmd.Flags().BoolVarP(&serveRootOption.Backface, "backface", "f", false, "backface option")
 	serveCmd.Flags().BoolVarP(&serveRootOption.NoTransition, "noTransition", "t", false, "noTransition option")
 	serveCmd.Flags().BoolVarP(&serveRootOption.LinkShouldBlank, "linkShouldBlank", "l", false, "linkShouldBlank option")
+
+	serveCmd.Flags().StringSliceVarP(&customCSSs, "customCSS", "s", []string{}, "custom css")
+	serveCmd.Flags().StringSliceVarP(&customScripts, "customScripts", "j", []string{}, "custom scripts")
 }
 
 func handler(targetPath string) http.HandlerFunc {
@@ -101,7 +106,9 @@ func indexHandler(w http.ResponseWriter, r *http.Request, targetPath string) {
 		log.Fatal(err)
 	}
 	param := TalkieParam{
-		RootOption: serveRootOption,
+		RootOption:    serveRootOption,
+		CustomCSSs:    customCSSs,
+		CustomScripts: customScripts,
 	}
 	if err := param.Parse(string(bs), divider); err != nil {
 		err = errors.Wrap(err, "parse file failed")
