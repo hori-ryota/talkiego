@@ -34,8 +34,10 @@ type Page struct {
 }
 
 type TalkieParam struct {
-	RootOption RootOption
-	Pages      []Page
+	RootOption    RootOption
+	CustomCSSs    []string
+	CustomScripts []string
+	Pages         []Page
 }
 
 var rootOptReg = regexp.MustCompile(`(?s)<!--\s*rootopt:(.*?)-->`)
