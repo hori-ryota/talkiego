@@ -50,6 +50,7 @@ func Test_parseProps(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			if got := parseProps(tt.args.s); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("parseProps() = %v, want %v", got, tt.want)
