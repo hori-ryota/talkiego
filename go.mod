@@ -1,11 +1,10 @@
 module github.com/hori-ryota/talkiego
 
-go 1.15
+go 1.16
 
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
-	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15
 	github.com/magiconair/properties v1.8.0
 	github.com/mitchellh/go-homedir v1.0.0
 	github.com/mitchellh/mapstructure v1.1.2 // indirect

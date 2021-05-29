@@ -15,9 +15,6 @@ package main
 
 import "github.com/hori-ryota/talkiego/cmd"
 
-//go:generate go-assets-builder -p assets -o assets/talkie.go -s /assets/Talkie/dist -v Talkie assets/Talkie/dist
-//go:generate go-assets-builder -p assets -o assets/template.go -s /assets/template -v Template assets/template
-
 func main() {
 	cmd.Execute()
 }
