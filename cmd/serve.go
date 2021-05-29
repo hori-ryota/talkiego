@@ -49,7 +49,7 @@ var serveCmd = &cobra.Command{
 			return errors.Errorf("target file not found: targetPath='%s'", targetPath)
 		}
 
-		http.Handle("/assets/Talkie/dist/", http.StripPrefix("/assets/Talkie/dist", http.FileServer(assets.Talkie)))
+		http.Handle("/assets/Talkie/dist/", http.StripPrefix("/assets", http.FileServer(http.FS(assets.Talkie))))
 		http.HandleFunc("/", handler(targetPath))
 
 		log.Printf("ListenAndServe http://localhost:%d/\n", servePort)
@@ -91,7 +91,7 @@ func handler(targetPath string) http.HandlerFunc {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request, targetPath string) {
-	tmpl, err := template.New("index").Parse(string(assets.Template.Files["/index.html"].Data))
+	tmpl, err := template.New("index.html").Parse(string(assets.IndexHTMLTemplate))
 	if err != nil {
 		err = errors.Wrap(err, "parse template for index.html failed)")
 		w.WriteHeader(http.StatusInternalServerError)
